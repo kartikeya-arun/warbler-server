@@ -41,6 +41,8 @@ app.use(function (req,res,next){
 
 app.use(errorHandler);
 
-app.listen(PORT,function (){
-    console.log(`Server is started on port ${PORT}`)
+db.connectDB().then(()=>{
+    app.listen(PORT,function (){
+        console.log(`Server is started on port ${PORT}`)
+    })  
 })
